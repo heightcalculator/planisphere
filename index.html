@@ -1,0 +1,21 @@
+<button onClick="work()">Use My Location</button>
+<script>
+   function work() {
+   navigator.geolocation.getCurrentPosition(position => {
+   const rawlat= position.coords.latitude;
+   function fixLat(latitude){
+      var ah
+      if (latitude>=0){
+         ah="N";
+      }else {ah="S"}
+      latitude=Math.abs((((latitude/5).toFixed())*5))
+      console.log(latitude+ah)
+      const result=latitude+ah
+      return result
+   };
+   function redirect(abc){
+      window.location.href="http://planisphere.aarushmagic.com/pdf/planisphere-"+abc+".pdf";
+   };
+      redirect(fixLat(rawlat))
+   })}
+   </script>
