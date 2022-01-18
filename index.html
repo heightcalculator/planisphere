@@ -1,4 +1,13 @@
-<button onClick="work()">Use My Location</button>
+<style>
+   body{
+      text-align: center;
+   }
+</style>
+<body>
+   <h1>Make Your Own Planisphere!</h1>
+   <p>Clcik below to make your own plainsphere using your location. The button will take your latitiude and give you to a pdf of a planisphere for a latitude suitable for your area!</p>
+   <button onClick="work()">Use My Location</button>
+</body>
 <script>
    function work() {
    navigator.geolocation.getCurrentPosition(position => {
