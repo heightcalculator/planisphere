@@ -23,7 +23,9 @@
    <div id="page-top"></div>
    <h1>Make Your Own Planisphere!</h1>
    <o>A planisphere is a simple hand-held device which shows a map of which stars are visible in the night sky at any particular time. By rotating a wheel, it shows how stars move across the sky through the night, and how different constellations are visible at different times of year.</p>
-   <p>Click below to make your own plainsphere using your location. The button will take your latitiude and give you to a pdf of a planisphere for a latitude suitable for your area!</p>
+   <p>Click below to make your own plainsphere using your location. This will give you a pdf of a planisphere for a latitude suitable for your area!</p>
+   <input id='latinput' type="number" placeholder="Enter your latitude!">
+   <button onClick="workTwo()">Make my planisphere!</button>
    <button onClick="work()">Make My Planisphere!</button>
    <p><h2>What you need:</h2>
       <div class="left">
@@ -76,4 +78,23 @@
    };
       redirect(fixLat(rawlat))
    })}
+      function workTwo() {
+   console.log('clicked')
+   var rawlat=document.getElementById("latinput").value;
+   console.log(rawlat)
+   function fixLat(latitude){
+      var ah
+      if (latitude>=0){
+         ah="N";
+      }else {ah="S"}
+      latitude=Math.abs((((latitude/5).toFixed())*5))
+      console.log(latitude+ah)
+      const result=latitude+ah
+      return result
+   };
+   function redirect(abc){
+      window.location.href="pdfs/planisphere-"+abc+".pdf";
+   };
+      redirect(fixLat(rawlat))
+   }
    </script>
