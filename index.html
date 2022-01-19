@@ -95,6 +95,11 @@
    function redirect(abc){
       window.location.href="pdfs/planisphere-"+abc+".pdf";
    };
-      redirect(fixLat(rawlat))
+      var khsd = Math.abs(rawlat)
+      console.log(khsd)
+      if(90>=khsd){
+      redirect(fixLat(rawlat))}
+      else{alert("Sorry, the latitude you entered does not exist. Please try again!")}
+   }
    }
    </script>
